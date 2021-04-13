@@ -17,13 +17,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
+    detailcharts.cpp \
     mainwindow.cpp \
     charts.cpp
 
 HEADERS  += mainwindow.h \
-    charts.h
+    charts.h \
+    detailcharts.h
 
 FORMS    += charts.ui \
+    detailcharts.ui \
     mainwindow.ui
 
 # Default rules for deployment.
