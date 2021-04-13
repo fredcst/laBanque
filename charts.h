@@ -17,7 +17,6 @@ public:
     ~charts();
 
 private slots:
-    void on_lcdNumber_overflow();
 
 private:
     Ui::charts *ui;
