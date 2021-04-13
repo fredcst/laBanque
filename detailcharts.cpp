@@ -16,6 +16,5 @@ detailCharts::~detailCharts()
 
 void detailCharts::on_pushButton_clicked()
 {
-    //charts2.show();
     this->hide();
 }

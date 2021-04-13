@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "charts.h"
+#include "detailcharts.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
