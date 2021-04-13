@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDateTime>
+#include "detailcharts.h"
 
 namespace Ui {
 class charts;
@@ -17,7 +18,6 @@ public:
     ~charts();
 
 private slots:
-    void on_lcdNumber_overflow();
 
 private:
     Ui::charts *ui;

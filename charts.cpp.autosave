@@ -1,7 +1,6 @@
 #include "charts.h"
 #include "ui_charts.h"
-
-
+#include "detailcharts.h"
 
 charts::charts(QWidget *parent) :
     QWidget(parent),
@@ -13,9 +12,4 @@ charts::charts(QWidget *parent) :
 charts::~charts()
 {
     delete ui;
-}
-
-void charts::on_lcdNumber_overflow()
-{
-    
 }

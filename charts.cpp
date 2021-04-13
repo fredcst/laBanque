@@ -1,5 +1,6 @@
 #include "charts.h"
 #include "ui_charts.h"
+#include "detailcharts.h"
 
 
 
