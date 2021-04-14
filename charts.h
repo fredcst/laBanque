@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QDateTime>
-#include "detailcharts.h"
 
 namespace Ui {
 class charts;
@@ -14,13 +13,16 @@ class charts : public QWidget
     Q_OBJECT
 
 public:
-    explicit charts(QWidget *parent = nullptr);
+    explicit charts(int, QWidget *parent = nullptr);
     ~charts();
-    detailCharts dtch;
 
 private slots:
 
-    void on_radioButton_clicked();
+    void on_check_toutes_toggled(bool checked);
+
+    //void on_check_toutes_stateChanged(int arg1);
+
+    void on_check_toutes_clicked(bool checked);
 
 private:
     Ui::charts *ui;

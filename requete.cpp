@@ -10,44 +10,35 @@ void Requete::setVille(int value)
     ville = value;
 }
 
-int Requete::getCanal_bancaire() const
+int Requete::getCanal() const
 {
-    return canal_bancaire;
+    return canal;
 }
 
-void Requete::setCanal_bancaire(int value)
+void Requete::setCanal(int value)
 {
-    canal_bancaire = value;
+    canal = value;
 }
 
-int Requete::getCanal_assurance() const
+int Requete::getFamille() const
 {
-    return canal_assurance;
+    return famille;
 }
 
-void Requete::setCanal_assurance(int value)
+void Requete::setFamille(int value)
 {
-    canal_assurance = value;
+    famille = value;
 }
 
-int Requete::getCanal_boursier() const
+
+int Requete::getProduit() const
 {
-    return canal_boursier;
+    return produit;
 }
 
-void Requete::setCanal_boursier(int value)
+void Requete::setProduit(int value)
 {
-    canal_boursier = value;
-}
-
-int Requete::getId_produit() const
-{
-    return id_produit;
-}
-
-void Requete::setId_produit(int value)
-{
-    id_produit = value;
+    produit = value;
 }
 
 int Requete::getTotal_ventes() const
@@ -60,12 +51,11 @@ void Requete::setTotal_ventes(int value)
     total_ventes = value;
 }
 
-Requete::Requete(int a, int b, int c, int d, int e, int f)
+Requete::Requete(int a, int b, int c, int d, int e)
 {
     ville=a;
-    canal_bancaire=b;
-    canal_assurance=c;
-    canal_boursier=d;
-    id_produit=e;
-    total_ventes=f;
+    canal=b;
+    famille=c;
+    produit=d;
+    total_ventes=e;
 }

@@ -27,7 +27,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    charts charts1;
+    charts *ch;
 };
 
 #endif // MAINWINDOW_H

@@ -3,12 +3,13 @@
 #include "charts.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     ui->pushButton->setDisabled(1);
     ui->comboBox->setDisabled(1);
+
 }
 
 MainWindow::~MainWindow()
@@ -18,7 +19,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    charts1.show();
+    ch = new charts(ui->comboBox->currentIndex());
+    ch->show();
     this->hide();
 }
 
