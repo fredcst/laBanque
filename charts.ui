@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1192</width>
+    <height>980</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
+     <x>30</x>
+     <y>50</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -25,41 +25,18 @@
    <property name="font">
     <font>
      <family>Rasa SemiBold</family>
-     <pointsize>34</pointsize>
+     <pointsize>44</pointsize>
     </font>
    </property>
    <property name="text">
     <string>La BanQ</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>110</y>
-     <width>211</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>110</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Agence :</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>160</y>
+     <x>410</x>
+     <y>60</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -74,140 +51,241 @@
     <string>OVERVIEW DES VENTES</string>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>70</y>
-     <width>64</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="graphicsView">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>240</y>
-     <width>211</width>
-     <height>201</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="graphicsView_2">
+  <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>240</y>
-     <width>211</width>
-     <height>201</height>
+     <y>160</y>
+     <width>92</width>
+     <height>23</height>
     </rect>
    </property>
+   <property name="text">
+    <string>Paris</string>
+   </property>
   </widget>
-  <widget class="QGraphicsView" name="graphicsView_3">
+  <widget class="QCheckBox" name="checkBox_2">
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>240</y>
-     <width>211</width>
-     <height>201</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>450</y>
-     <width>141</width>
-     <height>17</height>
+     <y>160</y>
+     <width>92</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Produits Bancaires</string>
+    <string>Lyon</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QCheckBox" name="checkBox_3">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>450</y>
-     <width>141</width>
-     <height>17</height>
+     <x>760</x>
+     <y>160</y>
+     <width>101</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Produits Assurance</string>
+    <string>Strasbourg</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QCheckBox" name="checkBox_4">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>450</y>
+     <x>1020</x>
+     <y>160</y>
+     <width>92</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Marseille</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>185</y>
+     <width>1161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>1161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_volume">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>210</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Volume</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_euros">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>210</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Euros</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_pourcentage">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>210</y>
      <width>131</width>
-     <height>17</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Produits Boursiers</string>
+    <string>% Pourcentage </string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QCheckBox" name="checkBox_5">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>480</y>
-     <width>89</width>
-     <height>25</height>
+     <x>40</x>
+     <y>160</y>
+     <width>92</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <italic>true</italic>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
-    <string>Détail</string>
+    <string>TOUTES</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>480</y>
-     <width>89</width>
-     <height>25</height>
+     <x>50</x>
+     <y>250</y>
+     <width>1091</width>
+     <height>681</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <italic>true</italic>
-    </font>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
-   <property name="text">
-    <string>Détail</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>480</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <italic>true</italic>
-    </font>
-   </property>
-   <property name="text">
-    <string>Détail</string>
-   </property>
+   <widget class="QWidget" name="overview">
+    <attribute name="title">
+     <string>OVERVIEW</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="canalbancaire">
+    <attribute name="title">
+     <string>Canal Bancaire</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="canalassurance">
+    <attribute name="title">
+     <string>Canal Assurance</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="canalboursier">
+    <attribute name="title">
+     <string>Canal Boursier</string>
+    </attribute>
+   </widget>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>554</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>769</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1028</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

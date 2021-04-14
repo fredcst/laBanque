@@ -19,11 +19,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     detailcharts.cpp \
     mainwindow.cpp \
-    charts.cpp
+    charts.cpp \
+    requete.cpp
 
 HEADERS  += mainwindow.h \
+    canal.h \
     charts.h \
-    detailcharts.h
+    detailcharts.h \
+    requete.h
 
 FORMS    += charts.ui \
     detailcharts.ui \
