@@ -187,37 +187,57 @@
     <string>TOUTES</string>
    </property>
   </widget>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QTabWidget" name="chartView">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>250</y>
-     <width>1091</width>
-     <height>681</height>
+     <width>1039</width>
+     <height>659</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="overview">
     <attribute name="title">
      <string>OVERVIEW</string>
     </attribute>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="overviewLayout"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QWidget" name="canalbancaire">
+   <widget class="QWidget" name="cBancaire">
     <attribute name="title">
      <string>Canal Bancaire</string>
     </attribute>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="cBancLayout"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QWidget" name="canalassurance">
+   <widget class="QWidget" name="cAssurance">
     <attribute name="title">
      <string>Canal Assurance</string>
     </attribute>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="cAssuLayout"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QWidget" name="canalboursier">
+   <widget class="QWidget" name="cBoursier">
     <attribute name="title">
      <string>Canal Boursier</string>
     </attribute>
+    <layout class="QGridLayout" name="gridLayout_6">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="cBoursLayout"/>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
