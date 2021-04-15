@@ -97,8 +97,11 @@ private slots:
     void on_check_toutes_toggled(bool checked);
 
     //void on_check_toutes_stateChanged(int arg1);
-
+    vector<int> whichCitiesAreChecked();
     void on_check_toutes_clicked(bool checked);
+
+
+    void on_pushButton_clicked();
 
 private:
     Ui::charts *ui;

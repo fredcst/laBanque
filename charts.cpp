@@ -1,12 +1,14 @@
 #include "charts.h"
 #include "ui_charts.h"
 #include <iostream>
+#include <string>
+#include <QString>
 
 vector<Requete> creation_de_requetes(){
     vector<Requete> vec;
     for (int ville=1; ville<5; ville++){
         for (int canal=1; canal<4; canal++){
-            for(int famille=1; famille<7; famille++){
+            for (int famille=1; famille<7; famille++){
                 for (int produit=1; produit<12; produit++){
                     if(
                             !(
@@ -26,6 +28,26 @@ vector<Requete> creation_de_requetes(){
     return vec;
 }
 
+vector<int> charts::whichCitiesAreChecked(){
+    vector<int> villes;
+    if (ui->check_paris->isChecked())
+        villes.push_back(1);
+    if (ui->check_lyon->isChecked())
+        villes.push_back(2);
+    if (ui->check_strasbourg->isChecked())
+        villes.push_back(3);
+    if (ui->check_marseille->isChecked())
+        villes.push_back(4);
+    /*
+    for (int i = 0; i < (int)villes.size(); i++){
+        cout << villes[i] << endl;
+    }
+    */
+    return villes;
+}
+
+// ////////////OVERVIEW///////////////
+
 int totalParFamilleEtVille(vector <Requete> rq, int ville, int produit_1, int produit_2){
     int total=0;
     for (int i = 0; i<(int)rq.size(); i++){
@@ -34,6 +56,7 @@ int totalParFamilleEtVille(vector <Requete> rq, int ville, int produit_1, int pr
     }
      return total;
 }
+
 
 QChartView * chartGenerator_banc(int nb_villes){
 
@@ -199,6 +222,146 @@ QChartView * chartGenerator_bours(int nb_villes){
     return chartView;
 }
 
+// ////////////CANAUX///////////////
+
+int totaldeProduitsparVille(vector <Requete> rq, int ville, int produit){
+    int total=0;
+    for (int i = 0; i<(int)rq.size(); i++){
+        if((rq[i].getProduit()==produit && rq[i].getVille()==ville))
+            total+=rq[i].getTotal_ventes();
+    }
+     return total;
+}
+
+
+QChartView * chartGenerator_2prod_famille(QString prod1, int id_prod1, QString prod2, int id_prod2, QString nom_famille, vector<int> villes){
+
+    vector<Requete> rq;
+    rq=creation_de_requetes();
+
+    //![1]
+        QBarSet *set0 = new QBarSet(prod1);
+        QBarSet *set1 = new QBarSet(prod2);
+
+        //Famille prets¡
+        for (int i=1; i <= (int)villes.size(); i++){
+            *set0 << totaldeProduitsparVille(rq,i,id_prod1);
+        }
+        for (int i=1; i <= (int)villes.size(); i++){
+            *set1 << totaldeProduitsparVille(rq,i,id_prod2);
+        }
+
+    //![2]
+        QBarSeries *series = new QBarSeries();
+        series->append(set0);
+        series->append(set1);
+
+    //![3]
+        QChart *chart = new QChart();
+        //afiche les barres
+        chart->addSeries(series);
+        chart->setTitle("Famille: " + nom_famille);
+        chart->setAnimationOptions(QChart::SeriesAnimations);
+
+
+    //![4]
+        QStringList categories;
+
+        if ( std::find(villes.begin(),villes.end(),1) != villes.end()){
+            categories << "Paris";
+        }
+        if ( std::find(villes.begin(),villes.end(),2) != villes.end()){
+            categories << "Lyon";
+        }
+        if ( std::find(villes.begin(),villes.end(),3) != villes.end()){
+            categories << "Strasbourg";
+        }
+        if ( std::find(villes.begin(),villes.end(),4) != villes.end()){
+            categories << "Marseille";
+        }
+
+        QBarCategoryAxis *axisX = new QBarCategoryAxis();
+        axisX->append(categories);
+        chart->addAxis(axisX, Qt::AlignBottom);
+        series->attachAxis(axisX);
+
+        QValueAxis *axisY = new QValueAxis();
+        axisY->setRange(0,100);
+        chart->addAxis(axisY, Qt::AlignLeft);
+        series->attachAxis(axisY);
+
+    //![5]
+        chart->legend()->setVisible(true);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+
+    //![6]
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+    return chartView;
+}
+
+QChartView * chartGenerator_1prod_famille(QString prod1, int id_prod1, QString nom_famille, vector<int> villes){
+
+    vector<Requete> rq;
+    rq=creation_de_requetes();
+
+    //![1]
+        QBarSet *set0 = new QBarSet(prod1);
+
+        //Famille prets¡
+        for (int i=1; i <= (int)villes.size(); i++){
+            *set0 << totaldeProduitsparVille(rq,i,id_prod1);
+        }
+
+    //![2]
+        QBarSeries *series = new QBarSeries();
+        series->append(set0);
+
+    //![3]
+        QChart *chart = new QChart();
+        //afiche les barres
+        chart->addSeries(series);
+        chart->setTitle("Famille: " + nom_famille);
+        chart->setAnimationOptions(QChart::SeriesAnimations);
+
+
+    //![4]
+        QStringList categories;
+
+        if ( std::find(villes.begin(),villes.end(),1) != villes.end()){
+            categories << "Paris";
+        }
+        if ( std::find(villes.begin(),villes.end(),2) != villes.end()){
+            categories << "Lyon";
+        }
+        if ( std::find(villes.begin(),villes.end(),3) != villes.end()){
+            categories << "Strasbourg";
+        }
+        if ( std::find(villes.begin(),villes.end(),4) != villes.end()){
+            categories << "Marseille";
+        }
+
+        QBarCategoryAxis *axisX = new QBarCategoryAxis();
+        axisX->append(categories);
+        chart->addAxis(axisX, Qt::AlignBottom);
+        series->attachAxis(axisX);
+
+        QValueAxis *axisY = new QValueAxis();
+        axisY->setRange(0,100);
+        chart->addAxis(axisY, Qt::AlignLeft);
+        series->attachAxis(axisY);
+
+    //![5]
+        chart->legend()->setVisible(true);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+
+    //![6]
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+    return chartView;
+}
 
 charts::charts(int nb, QWidget *parent) :
     QWidget(parent),
@@ -209,7 +372,7 @@ charts::charts(int nb, QWidget *parent) :
 //Volume selectionné par défaut
     ui->radioButton_volume->setChecked(1);
 
-//Option d'utilisateur choisie dans le MainWindow
+//Cases des villes en fonction de l'utilisateur choisi dans le MainWindow
     switch (nb) {
     case 1:
         ui->check_paris->setChecked(1);
@@ -229,6 +392,22 @@ charts::charts(int nb, QWidget *parent) :
         break;
     }
 
+
+    vector<int> villes = whichCitiesAreChecked();
+
+    //Canal Bancaire
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Habitation",1,"Auto",2,"Prêts",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Courant",3,"Epargne",4,"Comptes",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Vert",5,"Bleu",6,"Chèques",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Débit",7,"Credit",8,"Cartes",villes));
+
+    //Canal Assurance
+    ui->cAssuLayout->addWidget(chartGenerator_2prod_famille("Vélo",9,"Ordi",10,"Assurances",villes));
+
+    //Canal Notre Action
+    ui->cBoursLayout->addWidget(chartGenerator_1prod_famille("La BanQ Action",11,"Notre Action",villes));
+
+    //OVERVIEW
     ui->overviewLayout->addWidget(chartGenerator_banc(1));
     ui->overviewLayout->addWidget(chartGenerator_assu(1));
     ui->overviewLayout->addWidget(chartGenerator_bours(1));
@@ -243,6 +422,8 @@ charts::~charts()
     delete ui;
 }
 
+
+
 //interaction checkboxes villes
 void charts::on_check_toutes_toggled(bool checked)
 {
@@ -253,6 +434,8 @@ void charts::on_check_toutes_toggled(bool checked)
         ui->check_paris->setDisabled(1);
     }
 }
+
+
 
 //interaction checkboxes villes
 void charts::on_check_toutes_clicked(bool checked)
@@ -273,4 +456,36 @@ void charts::on_check_toutes_clicked(bool checked)
         ui->check_lyon->setEnabled(1);
         ui->check_paris->setEnabled(1);
     }
+}
+
+
+void clearLayout(QLayout* layout, bool deleteWidgets = true)
+{
+    while (QLayoutItem* item = layout->takeAt(0))
+    {
+        if (deleteWidgets)
+        {
+            if (QWidget* widget = item->widget())
+                widget->deleteLater();
+        }
+        if (QLayout* childLayout = item->layout())
+            clearLayout(childLayout, deleteWidgets);
+        delete item;
+    }
+}
+
+
+void charts::on_pushButton_clicked()
+{
+    clearLayout(ui->cBancLayout);
+    ui->cBancaire->update();
+    vector<int> villes = whichCitiesAreChecked();
+
+    //Canal Bancaire
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Habitation",1,"Auto",2,"Prêts",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Courant",3,"Epargne",4,"Comptes",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Vert",5,"Bleu",6,"Chèques",villes));
+    ui->cBancLayout->addWidget(chartGenerator_2prod_famille("Débit",7,"Credit",8,"Cartes",villes));
+    ui->cBancaire->update();
+
 }

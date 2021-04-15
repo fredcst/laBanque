@@ -11,7 +11,6 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 #include "charts.h"
-#include "detailcharts.h"
 
 
 QT_CHARTS_USE_NAMESPACE
