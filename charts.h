@@ -101,7 +101,12 @@ private slots:
     void on_check_toutes_clicked(bool checked);
 
 
+    //oid refreshGraphs();
+
+    void patch(int index);
+
     void on_pushButton_clicked();
+
 
 private:
     Ui::charts *ui;
